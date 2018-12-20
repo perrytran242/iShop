@@ -1,0 +1,19 @@
+{
+  "name": "ishop",
+  "version": "1.0.0",
+  "description": "ecommerce demo site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flische/iShop.git"
+  },
+  "author": "Federico Lische",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flische/iShop/issues"
+  },
+  "homepage": "https://github.com/flische/iShop#readme"
+}
