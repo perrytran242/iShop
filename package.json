@@ -1,10 +1,15 @@
 {
-  "name": "ishop",
+  "name": "iShop",
   "version": "1.0.0",
   "description": "ecommerce demo site",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:server": "nodemon index.js",
+    "dev:client": "npm start --prefix client",
+    "bundle": "npm run bundle --prefix client"
   },
   "repository": {
     "type": "git",

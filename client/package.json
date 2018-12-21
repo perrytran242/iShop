@@ -1,24 +1,37 @@
 {
-  "name": "react_starter",
+  "name": "iShop-client",
   "version": "1.0.0",
-  "description": "Starting setup for react redux project",
+  "description": "Client side for iShop app, demo E-Commerce site",
   "main": "index.js",
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:9000"
+    },
+    "/auth/*": {
+      "target": "http://localhost:9000"
+    }
+  },
   "scripts": {
     "start": "node dev_server.js",
+    "dev": "npm run dev --prefix ..",
     "bundle": "webpack --config webpack.prod.js --progress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Scott Bowler",
+  "author": "Federico Lische",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Learning-Fuze/react_starter.git"
+    "url": "https://github.com/flische/iShop.git"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "materialize-css": "^1.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
-    "redux": "^4.0.1"
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-form": "^8.0.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
