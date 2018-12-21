@@ -1,10 +1,15 @@
 {
-  "name": "ishop",
+  "name": "iShop",
   "version": "1.0.0",
   "description": "ecommerce demo site",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:server": "nodemon index.js",
+    "dev:client": "npm start --prefix client",
+    "bundle": "npm run bundle --prefix client"
   },
   "repository": {
     "type": "git",
@@ -15,5 +20,20 @@
   "bugs": {
     "url": "https://github.com/flische/iShop/issues"
   },
-  "homepage": "https://github.com/flische/iShop#readme"
+  "homepage": "https://github.com/flische/iShop#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jwt-simple": "^0.5.5",
+    "mysql2": "^1.6.4",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^4.42.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9",
+    "npm-run-all": "^4.1.5"
+  }
 }
