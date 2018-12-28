@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import Input from '../general/form/input.js';
+import Input from '../../general/form/input.js';
 
 class SignUp extends Component {
     render(){
