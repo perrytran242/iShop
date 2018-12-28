@@ -1,4 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import SideNav from './side_nav';
+import './nav.scss';
 
 class Nav extends Component{
 
@@ -37,9 +40,62 @@ class Nav extends Component{
         ]
     }
 
+    renderSignOut(){
+        return (
+            <button onClick={ () => (console.log('Sign Out clicked!'))} 
+                    className="btn waves-effect waves-light blue">Sign Out
+            </button>
+        );
+    }
+
+    buildLink(link){
+        return (
+            <li key={link.to}>
+                <Link to={link.to}>{link.text}</Link>
+            </li>
+        );
+    }
+
+    renderLinks = () => {
+        const auth = false;
+        let authLinks = [];
+
+        const { auth: navAuth, common, nonAuth} = this.state;
+
+        const commonLinks = common.map(this.buildLink);
+
+        if(auth){
+            authLinks = navAuth.map(this.buildLink);
+            authLinks.push( <li key='/sign-out'className="sign-out"> { this.renderSignOut() } </li> );
+        } else {
+            authLinks = nonAuth.map(this.buildLink);
+        }
+
+        return [ ...commonLinks, ...authLinks ];
+    }
+
+    getSideNavRef(e){
+        console.log('Side Nav Ref: ', e);
+    }
+
     render(){
         return (
-            <nav className="blue-grey darken-2"></nav>
+            <Fragment>
+                <nav className="blue-grey darken-2">
+                    <div className="nav-wrapper">
+                        <Link className="brand-logo" to="/">iShop</Link>
+                        <Link to="#" data-target="side-nav" className="sidenav-trigger">
+                            <i className="material-icons">menu</i>
+                        </Link>
+                        <ul className="right hide-on-med-and-down">
+                            {this.renderLinks()}
+                        </ul>
+                    </div>
+                </nav>
+
+                <SideNav renderLinks={this.renderLinks}/>
+            </Fragment>
+            
         );
     }
 }

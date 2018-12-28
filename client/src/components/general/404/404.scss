@@ -1,6 +1,6 @@
 .not-found-container {
     display: flex;
-    height: 100vh;
+    height: calc(100vh - 64px);
     
     .not-found-body {
         margin: auto;
