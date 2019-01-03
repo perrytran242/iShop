@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import Input from '../../general/form/input';
-import { validation } from '../../../helpers/index';
+import { validation } from '../../../helpers';
 
 console.log('Validation: ', validation);
 
@@ -65,7 +65,14 @@ function validate( { firstName, lastName, email, password, confirmPassword }){
 
 SignUpForm = reduxForm({
    form: 'sign-up',
-   validate
+   validate,
+   initialValues: {
+       firstName: 'Rachel',
+       lastName: 'Pan',
+       email: 'rachel@lamepeople.com',
+       password: 'asSD1234!',
+       confirmPassword: 'asSD1234!'
+   }
 })(SignUpForm);
 
 export default SignUpForm;
