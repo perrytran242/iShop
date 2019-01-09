@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/flische/iShop#readme",
   "dependencies": {
-    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "jwt-simple": "^0.5.5",

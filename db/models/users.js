@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const bcrypt = require('bcrypt-nodejs');
+const bcrypt = require('bcryptjs');
 const { findByPid } = require('./interfaces');
 
 
