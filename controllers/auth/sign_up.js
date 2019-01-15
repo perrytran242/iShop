@@ -1,6 +1,7 @@
+const { users } = require('../../db/models');
 const validation = require('../../helpers/validation');
 
-module.exports = (req, resp) => {
+module.exports = async (req, resp) => {
     const { body: { firstName, lastName, email, password } } = req;
 
     try  {
@@ -36,6 +37,23 @@ module.exports = (req, resp) => {
                 errors
             });
         }
+
+        const existingUser = await users.findOne({
+            where: { email }
+        });
+
+        if(existingUser){
+            return resp.status(422).send('User already exists');
+        }
+
+        const newUser = users.build({
+            email,
+            firstName,
+            lastName,
+            password
+        });
+
+        await newUser.save();
 
         resp.send({
             success: true,

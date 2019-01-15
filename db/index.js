@@ -21,3 +21,7 @@ sequelize.authenticate().then(() => {
 });
 
 module.exports = sequelize;
+
+require('./models');
+
+sequelize.sync();
