@@ -1,15 +1,11 @@
 const router = require('express').Router();
-const { requireSignIn } = require('../setup')
-const { signUp } = require('../../controllers/auth');
+const { requireBasicAuth, requireSignIn } = require('../setup')
+const { jwtSignIn, signIn, signUp } = require('../../controllers/auth');
 
 router.post('/sign-up', signUp);
 
-router.post('/sign-in', requireSignIn, (req, resp) => {
-    resp.send({
-        success: true,
-        message: 'This is for sign-in',
-        user: req.user
-    });
-});
+router.post('/sign-in', requireSignIn, signIn);
+
+router.get('/jwt-sign-in', requireBasicAuth, jwtSignIn);
 
 module.exports = router;
