@@ -22,10 +22,27 @@ const localLogin = new localStrategy(localOptions, async (email, password, done)
         if(!isMatch) return done(null, false);
 
         done(null, user);
-
     } catch(err){
         done(err);
     }
 });
 
+const jwtOptions = {
+    jwtFromRequest: ExtractJwt.fromHeader('authorization'), // <-- this means we will send it on our 'authorization' header
+    secretOrKey: secret
+};
+
+const jwtLogin = new JwtStrategy(jwtOptions, async ( payload, done ) => {
+    try {
+        const user = await users.findByPk(payload.uid);
+
+        if(!user) return done(null, false);
+
+        done(null, user);
+    } catch(err){
+        done(null, false);
+    }
+});
+
+passport.use(jwtLogin);
 passport.use(localLogin);
