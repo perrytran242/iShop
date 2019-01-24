@@ -44,7 +44,7 @@ class Nav extends Component{
 
     renderSignOut(){
         return (
-            <button onClick={ this.props.signOut } 
+            <button onClick={this.props.signOut} 
                     className="btn waves-effect waves-light blue">Sign Out
             </button>
         );

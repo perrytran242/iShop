@@ -3,6 +3,7 @@ import 'materialize-css/dist/js/materialize';
 import React from 'react';
 import AccountRoutes from './account';
 import { Route, Switch } from 'react-router-dom';
+// import auth from '../hoc/auth';
 import Home from './home';
 import NotFound from './general/404';
 import Nav from './nav';

@@ -34,7 +34,7 @@ export const signIn = userInfo => async dispatch => {
 
 export const signUp = userInfo => async dispatch => {
     try {
-        const { user: { token, user } } = await axios.post('/auth/sign-up', userInfo);
+        const { data: { token, user } } = await axios.post('/auth/sign-up', userInfo);
 
         localStorage.setItem('token',token);
 
