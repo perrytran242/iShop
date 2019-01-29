@@ -7,6 +7,7 @@ require('./db');
 
 const app = express();
 
+// disable when not testing.
 app.use(cors());
 app.use(express.urlencoded( {extended:false} ));
 app.use(express.json());
@@ -22,5 +23,5 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
     console.log('Server running on PORT: ' + PORT);
 }).on('error', (err) => {
-    console.log('Listen Error: You already have a server running on PORT: ' + PORT)
-});
+    console.log('Listen Error: You already have a server running on PORT: ' + PORT);
+}); 
