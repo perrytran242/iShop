@@ -1,5 +1,5 @@
 {
-  "name": "iShop",
+  "name": "ishop",
   "version": "1.0.0",
   "description": "ecommerce demo site",
   "main": "index.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/flische/iShop.git"
+    "url": "https://github.com/perrytran242/iShop"
   },
   "author": "Federico Lische",
   "license": "ISC",
